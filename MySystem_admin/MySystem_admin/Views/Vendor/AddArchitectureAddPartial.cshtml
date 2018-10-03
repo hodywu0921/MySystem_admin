@@ -1,0 +1,11 @@
+﻿@model MySystem_admin.Models.VendorViewModel
+<div>
+    <form id="add_form">
+        <table class="table table-bordered">
+            <tr>
+                <td>Vendor Name</td>
+                <td>@Html.TextBoxFor(model => model.VendorName, new { @class = "form-control", @placehoder = "VendorName..." })</td>
+            </tr>
+        </table>
+    </form>
+</div>

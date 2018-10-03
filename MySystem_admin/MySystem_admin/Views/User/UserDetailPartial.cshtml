@@ -1,0 +1,24 @@
+﻿<table class="table table-bordered">
+    @if (ViewBag.UserDtl != null)
+    {
+        foreach (var item in ViewBag.UserDtl)
+        {
+            <tr>
+                <td>User Name</td>
+                <td>@item.UserName</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>@item.Password</td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td>@item.RoleId</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+    }
+</table>

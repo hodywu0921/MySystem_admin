@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MySystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="System1" Type="nvarchar" MaxLength="2" />
+    <Property Name="System2" Type="nvarchar" MaxLength="2" />
+    <Property Name="System3" Type="nvarchar" MaxLength="2" />
+    <Property Name="System4" Type="nvarchar" MaxLength="2" />
+    <Property Name="System5" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="FactoryId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroupId" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="FactoryId" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Establishment" Type="datetime" />
+    <Property Name="LawRepresentative" Type="nvarchar" MaxLength="20" />
+    <Property Name="BusinessLicense" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExpirationDate" Type="date" />
+    <Property Name="Tariff" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="LY_Renvenue" Type="money" />
+    <Property Name="Area1_Renvenue" Type="money" />
+    <Property Name="Area2_Renvenue" Type="money" />
+    <Property Name="Area3_Renvenue" Type="money" />
+    <Property Name="SalesAmounts" Type="money" />
+    <Property Name="ManagementType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ManagementCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subsidiary" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsFTA" Type="bit" />
+    <Property Name="System" Type="nvarchar" MaxLength="30" />
+    <Property Name="EmpHeadcount" Type="int" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="VendorCertification">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="Certificate" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Certificate" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CertificateName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Organization" Type="nvarchar" MaxLength="50" />
+    <Property Name="CertificationDate" Type="date" />
+  </EntityType>
+  <EntityType Name="VendorContact">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="Contact" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="150" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="VendorMainCustomer">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="CustomerName" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerProductName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VendorMainProduct">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MainProduct" Type="nvarchar" MaxLength="50" />
+    <Property Name="MainCustomer" Type="nvarchar" MaxLength="20" />
+    <Property Name="ProductRemark" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="VendorManufacture">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="ManufactureId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ManufactureId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ManufactureCountry" Type="nvarchar" MaxLength="20" />
+    <Property Name="ManufactureFactory" Type="nvarchar" MaxLength="20" />
+    <Property Name="MonthlyYield" Type="int" />
+    <Property Name="FactoryArea" Type="int" />
+  </EntityType>
+  <EntityType Name="VendorTradeTerm">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="OADate" Type="int" />
+    <Property Name="IsDiscount" Type="bit" />
+    <Property Name="Currency" Type="nchar" MaxLength="8" />
+    <Property Name="PayingMethod" Type="nvarchar" MaxLength="30" />
+    <Property Name="IsContract" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="MySystemDBModelStoreContainer">
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorCertification" EntityType="Self.VendorCertification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorContact" EntityType="Self.VendorContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorMainCustomer" EntityType="Self.VendorMainCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorMainProduct" EntityType="Self.VendorMainProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorManufacture" EntityType="Self.VendorManufacture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorTradeTerm" EntityType="Self.VendorTradeTerm" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

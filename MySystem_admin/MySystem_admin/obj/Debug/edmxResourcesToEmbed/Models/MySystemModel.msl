@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MySystemDBModelStoreContainer" CdmEntityContainer="MySystemDBEntities">
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="System1" ColumnName="System1" />
+          <ScalarProperty Name="System2" ColumnName="System2" />
+          <ScalarProperty Name="System3" ColumnName="System3" />
+          <ScalarProperty Name="System4" ColumnName="System4" />
+          <ScalarProperty Name="System5" ColumnName="System5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.Vendor)">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Establishment" ColumnName="Establishment" />
+          <ScalarProperty Name="LawRepresentative" ColumnName="LawRepresentative" />
+          <ScalarProperty Name="BusinessLicense" ColumnName="BusinessLicense" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+          <ScalarProperty Name="LY_Renvenue" ColumnName="LY_Renvenue" />
+          <ScalarProperty Name="Area1_Renvenue" ColumnName="Area1_Renvenue" />
+          <ScalarProperty Name="Area2_Renvenue" ColumnName="Area2_Renvenue" />
+          <ScalarProperty Name="Area3_Renvenue" ColumnName="Area3_Renvenue" />
+          <ScalarProperty Name="SalesAmounts" ColumnName="SalesAmounts" />
+          <ScalarProperty Name="ManagementType" ColumnName="ManagementType" />
+          <ScalarProperty Name="ManagementCategory" ColumnName="ManagementCategory" />
+          <ScalarProperty Name="Subsidiary" ColumnName="Subsidiary" />
+          <ScalarProperty Name="IsFTA" ColumnName="IsFTA" />
+          <ScalarProperty Name="System" ColumnName="System" />
+          <ScalarProperty Name="EmpHeadcount" ColumnName="EmpHeadcount" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorCertification">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorCertification)">
+        <MappingFragment StoreEntitySet="VendorCertification">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="CertificationDate" ColumnName="CertificationDate" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorContact">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorContact)">
+        <MappingFragment StoreEntitySet="VendorContact">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorMainCustomer">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorMainCustomer)">
+        <MappingFragment StoreEntitySet="VendorMainCustomer">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerProductName" ColumnName="CustomerProductName" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorMainProduct">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorMainProduct)">
+        <MappingFragment StoreEntitySet="VendorMainProduct">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="MainProduct" ColumnName="MainProduct" />
+          <ScalarProperty Name="MainCustomer" ColumnName="MainCustomer" />
+          <ScalarProperty Name="ProductRemark" ColumnName="ProductRemark" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorManufacture">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorManufacture)">
+        <MappingFragment StoreEntitySet="VendorManufacture">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="ManufactureId" ColumnName="ManufactureId" />
+          <ScalarProperty Name="ManufactureCountry" ColumnName="ManufactureCountry" />
+          <ScalarProperty Name="ManufactureFactory" ColumnName="ManufactureFactory" />
+          <ScalarProperty Name="MonthlyYield" ColumnName="MonthlyYield" />
+          <ScalarProperty Name="FactoryArea" ColumnName="FactoryArea" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorTradeTerm">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorTradeTerm)">
+        <MappingFragment StoreEntitySet="VendorTradeTerm">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="OADate" ColumnName="OADate" />
+          <ScalarProperty Name="IsDiscount" ColumnName="IsDiscount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="PayingMethod" ColumnName="PayingMethod" />
+          <ScalarProperty Name="IsContract" ColumnName="IsContract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MySystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="System1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="System2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="System3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="System4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="System5" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="FactoryId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroupId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FactoryId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Establishment" Type="DateTime" Precision="3" />
+    <Property Name="LawRepresentative" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+    <Property Name="Tariff" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="LY_Renvenue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TY_Renvenue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SalesAmounts" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ManagementType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManagementCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subsidiary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsFTA" Type="Boolean" />
+    <Property Name="System" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EmpHeadcount" Type="Int32" />
+    <Property Name="OADate" Type="Int32" />
+    <Property Name="Currency" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+    <Property Name="PayingMethod" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IsDiscount" Type="Boolean" />
+    <Property Name="IsContact" Type="Boolean" />
+    <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactTel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="VendorCertification">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="Certificate" />
+    </Key>
+    <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Certificate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="CertificateName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CertificationDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="VendorMainProduct">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MainProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MainCustomer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ProductRemark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VendorManufacture">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="ManufactureId" />
+    </Key>
+    <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufactureId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufactureCountry" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ManufactureFactory" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MonthlyYield" Type="Int32" />
+    <Property Name="FactoryArea" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="MySystemDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" />
+    <EntitySet Name="VendorCertification" EntityType="Self.VendorCertification" />
+    <EntitySet Name="VendorMainProduct" EntityType="Self.VendorMainProduct" />
+    <EntitySet Name="VendorManufacture" EntityType="Self.VendorManufacture" />
+  </EntityContainer>
+</Schema>

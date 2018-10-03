@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MySystemDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MySystemDBModelStoreContainer">
+    <EntitySet Name="Role" EntityType="MySystemDBModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="MySystemDBModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendor" EntityType="MySystemDBModel.Store.Vendor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorCertification" EntityType="MySystemDBModel.Store.VendorCertification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorContact" EntityType="MySystemDBModel.Store.VendorContact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorMainCustomer" EntityType="MySystemDBModel.Store.VendorMainCustomer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorMainProduct" EntityType="MySystemDBModel.Store.VendorMainProduct" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorManufacture" EntityType="MySystemDBModel.Store.VendorManufacture" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorTradeTerm" EntityType="MySystemDBModel.Store.VendorTradeTerm" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="System1" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="System2" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="System3" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="System4" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="System5" Type="nvarchar" Nullable="true" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="FactoryId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="GroupId" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="FactoryId" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="RoleId" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="VendorName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="Establishment" Type="datetime" Nullable="true" />
+    <Property Name="LawRepresentative" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="BusinessLicense" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="true" />
+    <Property Name="Tariff" Type="decimal" Nullable="true" Precision="4" Scale="2" />
+    <Property Name="LY_Renvenue" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="Area1_Renvenue" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="Area2_Renvenue" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="Area3_Renvenue" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="SalesAmounts" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="ManagementType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ManagementCategory" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Subsidiary" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="IsFTA" Type="bit" Nullable="true" />
+    <Property Name="System" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="EmpHeadcount" Type="int" Nullable="true" />
+    <Property Name="Flag" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="VendorCertification">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Certificate" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="CertificateName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Organization" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CertificationDate" Type="datetime" Nullable="true" />
+    <Property Name="VendorVendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VendorContact">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="Contact" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Contact" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ContactEmail" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="ContactTel" Type="nvarchar" Nullable="true" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="VendorMainCustomer">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="CustomerName" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CustomerProductName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="VendorVendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VendorMainProduct">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ProductId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="MainProduct" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="MainCustomer" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="ProductRemark" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="VendorVendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VendorManufacture">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="ManufactureId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="ManufactureId" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="ManufactureCountry" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="ManufactureFactory" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="MonthlyYield" Type="int" Nullable="true" />
+    <Property Name="FactoryArea" Type="int" Nullable="true" />
+    <Property Name="VendorVendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VendorTradeTerm">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="OADate" Type="int" Nullable="true" />
+    <Property Name="IsDiscount" Type="bit" Nullable="true" />
+    <Property Name="Currency" Type="nchar" Nullable="true" MaxLength="8" />
+    <Property Name="PayingMethod" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="IsContract" Type="bit" Nullable="true" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MySystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="System1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="System2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="System3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="System4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="System5" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="FactoryId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GroupId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FactoryId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Establishment" Type="DateTime" Precision="3" />
+          <Property Name="LawRepresentative" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+          <Property Name="Tariff" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="LY_Renvenue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Area1_Renvenue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Area2_Renvenue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Area3_Renvenue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SalesAmounts" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ManagementType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManagementCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subsidiary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFTA" Type="Boolean" />
+          <Property Name="System" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmpHeadcount" Type="Int32" />
+          <Property Name="Flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="VendorCertification">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Certificate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CertificateName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CertificationDate" Type="DateTime" Precision="0" />
+          <Property Name="VendorVendorId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorContact">
+          <Key>
+            <PropertyRef Name="VendorId" />
+            <PropertyRef Name="Contact" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContactTel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorMainCustomer">
+          <Key>
+            <PropertyRef Name="VendorId" />
+            <PropertyRef Name="CustomerName" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorVendorId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorMainProduct">
+          <Key>
+            <PropertyRef Name="VendorId" />
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MainProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MainCustomer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProductRemark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VendorVendorId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorManufacture">
+          <Key>
+            <PropertyRef Name="VendorId" />
+            <PropertyRef Name="ManufactureId" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManufactureId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManufactureCountry" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ManufactureFactory" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MonthlyYield" Type="Int32" />
+          <Property Name="FactoryArea" Type="Int32" />
+          <Property Name="VendorVendorId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorTradeTerm">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OADate" Type="Int32" />
+          <Property Name="IsDiscount" Type="Boolean" />
+          <Property Name="Currency" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="PayingMethod" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IsContract" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="MySystemDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" />
+          <EntitySet Name="VendorCertification" EntityType="Self.VendorCertification" />
+          <EntitySet Name="VendorContact" EntityType="Self.VendorContact" />
+          <EntitySet Name="VendorMainCustomer" EntityType="Self.VendorMainCustomer" />
+          <EntitySet Name="VendorMainProduct" EntityType="Self.VendorMainProduct" />
+          <EntitySet Name="VendorManufacture" EntityType="Self.VendorManufacture" />
+          <EntitySet Name="VendorTradeTerm" EntityType="Self.VendorTradeTerm" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MySystemDBModelStoreContainer" CdmEntityContainer="MySystemDBEntities">
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="System1" ColumnName="System1" />
+          <ScalarProperty Name="System2" ColumnName="System2" />
+          <ScalarProperty Name="System3" ColumnName="System3" />
+          <ScalarProperty Name="System4" ColumnName="System4" />
+          <ScalarProperty Name="System5" ColumnName="System5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.Vendor)">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Establishment" ColumnName="Establishment" />
+          <ScalarProperty Name="LawRepresentative" ColumnName="LawRepresentative" />
+          <ScalarProperty Name="BusinessLicense" ColumnName="BusinessLicense" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+          <ScalarProperty Name="LY_Renvenue" ColumnName="LY_Renvenue" />
+          <ScalarProperty Name="Area1_Renvenue" ColumnName="Area1_Renvenue" />
+          <ScalarProperty Name="Area2_Renvenue" ColumnName="Area2_Renvenue" />
+          <ScalarProperty Name="Area3_Renvenue" ColumnName="Area3_Renvenue" />
+          <ScalarProperty Name="SalesAmounts" ColumnName="SalesAmounts" />
+          <ScalarProperty Name="ManagementType" ColumnName="ManagementType" />
+          <ScalarProperty Name="ManagementCategory" ColumnName="ManagementCategory" />
+          <ScalarProperty Name="Subsidiary" ColumnName="Subsidiary" />
+          <ScalarProperty Name="IsFTA" ColumnName="IsFTA" />
+          <ScalarProperty Name="System" ColumnName="System" />
+          <ScalarProperty Name="EmpHeadcount" ColumnName="EmpHeadcount" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorCertification">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorCertification)">
+        <MappingFragment StoreEntitySet="VendorCertification">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="CertificationDate" ColumnName="CertificationDate" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorContact">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorContact)">
+        <MappingFragment StoreEntitySet="VendorContact">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorMainCustomer">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorMainCustomer)">
+        <MappingFragment StoreEntitySet="VendorMainCustomer">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerProductName" ColumnName="CustomerProductName" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorMainProduct">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorMainProduct)">
+        <MappingFragment StoreEntitySet="VendorMainProduct">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="MainProduct" ColumnName="MainProduct" />
+          <ScalarProperty Name="MainCustomer" ColumnName="MainCustomer" />
+          <ScalarProperty Name="ProductRemark" ColumnName="ProductRemark" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorManufacture">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorManufacture)">
+        <MappingFragment StoreEntitySet="VendorManufacture">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="ManufactureId" ColumnName="ManufactureId" />
+          <ScalarProperty Name="ManufactureCountry" ColumnName="ManufactureCountry" />
+          <ScalarProperty Name="ManufactureFactory" ColumnName="ManufactureFactory" />
+          <ScalarProperty Name="MonthlyYield" ColumnName="MonthlyYield" />
+          <ScalarProperty Name="FactoryArea" ColumnName="FactoryArea" />
+          <ScalarProperty Name="VendorVendorId" ColumnName="VendorVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorTradeTerm">
+      <EntityTypeMapping TypeName="IsTypeOf(MySystemDBModel.VendorTradeTerm)">
+        <MappingFragment StoreEntitySet="VendorTradeTerm">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="OADate" ColumnName="OADate" />
+          <ScalarProperty Name="IsDiscount" ColumnName="IsDiscount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="PayingMethod" ColumnName="PayingMethod" />
+          <ScalarProperty Name="IsContract" ColumnName="IsContract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

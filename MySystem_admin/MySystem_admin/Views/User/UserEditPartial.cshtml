@@ -1,0 +1,27 @@
+﻿@model MySystem_admin.Models.UserViewModel
+
+<div>
+    <form id="edit_form">
+        @Html.HiddenFor(m => m.GroupId)
+        @Html.HiddenFor(m => m.FactoryId)
+        @Html.HiddenFor(m => m.UserId)
+        <table class="table table-bordered">
+            <tr>
+                <td>UserName</td>
+                <td>@Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placehoder = "User Name..." })</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>@Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placehoder = "Password..." })</td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td>@Html.TextBoxFor(model => model.RoleId, new { @class = "form-control", @placehoder = "Role..." })</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placehoder = "Email..." })</td>
+            </tr>
+        </table>
+    </form>
+</div>

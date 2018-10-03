@@ -1,0 +1,152 @@
+﻿@model MySystem_admin.Models.VendorViewModel
+
+<ul class="nav nav-tabs" id="litab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="tradeterm-tab" data-toggle="tab" href="#div_trade" role="tab" aria-controls="home" aria-selected="true">Trade Term</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="producttype-tab" data-toggle="tab" href="#div_product" role="tab" aria-controls="profile" aria-selected="false">Product Type</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#div_contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="manufacture-tab" data-toggle="tab" href="#div_manufacture" role="tab" aria-controls="contact" aria-selected="false">Manufucture</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="customer-tab" data-toggle="tab" href="#div_customer" role="tab" aria-controls="contact" aria-selected="false">Customer</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="certificate-tab" data-toggle="tab" href="#div_certificate" role="tab" aria-controls="contact" aria-selected="false">Certification</a>
+    </li>
+</ul>
+<div class="tab-content" id="bodytab">
+    <div class="tab-pane fade show active" id="div_trade" role="tabpanel">
+        <div>Open Account Days
+            @Html.TextBoxFor(Model => Model.OADate, new { @class = "form-control", @style = "width:20%;" })
+        </div>
+        <div>Vendor Tariff
+            @Html.TextBoxFor(Model => Model.Tariff, new { @class = "form-control", @style = "width:20%;" })
+        </div>
+        <div>Currency
+            @{ 
+                List<SelectListItem> currencylist = new List<SelectListItem>();
+
+                currencylist.Add(new SelectListItem()
+                {
+                    Text = "TWD",
+                    Value = "TWD"
+                });
+                currencylist.Add(new SelectListItem()
+                {
+                    Text = "USD",
+                    Value = "USD"
+                });
+                currencylist.Add(new SelectListItem()
+                {
+                    Text = "VND",
+                    Value = "VND"
+                });
+                currencylist.Add(new SelectListItem()
+                {
+                    Text = "EUR",
+                    Value = "EUR"
+                });
+                currencylist.Add(new SelectListItem()
+                {
+                    Text = "JPY",
+                    Value = "JPY"
+                });
+                currencylist.Add(new SelectListItem()
+                {
+                    Text = "IDR",
+                    Value = "IDR"
+                });
+            }
+            @Html.DropDownListFor(Model => Model.Currency, currencylist, "--Select Currency--", new { @class = "form-control", @style = "width:25%;" })
+        </div>
+        <div>Paying Method
+            @{ 
+                List<SelectListItem> tradelist = new List<SelectListItem>();
+
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "EXW(Ex Work)",
+                    Value = "EXW"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "EXF(Ex Factory)",
+                    Value = "EXF"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "FOB(Free On Board)",
+                    Value = "FOB"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "FAS(Free Alongside Ship)",
+                    Value = "FAS"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "FCA(Free Carrier)",
+                    Value = "FCA"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIP(Carriage and Insurance Paid to)",
+                    Value = "CIP"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CPT(Carriage Paid to)",
+                    Value = "CPT"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIF(Cost, Insurance & Freight)",
+                    Value = "CIF"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIF&C(Cost, Insurance & Freight & Commission)",
+                    Value = "CIF&C"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIF&E(Cost, Insurance & Freight & Exchange)",
+                    Value = "CIF&E"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIF&I(Cost, Insurance & Freight & Interest)",
+                    Value = "CIF&I"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIF Cleard",
+                    Value = "CIFCleard"
+                });
+                tradelist.Add(new SelectListItem()
+                {
+                    Text = "CIF Duty Paid",
+                    Value = "CIFDutyPaid"
+                });
+            }
+            @Html.DropDownListFor(Model => Model.PayingMethod, tradelist, "-- Select Paying Method --", new { @class = "form-control", @style = "width:50%;"})
+        </div>
+        <div>Have Contract?
+            <div>
+                @Html.RadioButtonFor(Model => Model.IsContract, true )Yes
+                @Html.RadioButtonFor(Model => Model.IsContract, false)No    
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="div_product" role="tabpanel" aria-labelledby="profile-tab">2</div>
+    <div class="tab-pane fade" id="div_contact" role="tabpanel" aria-labelledby="contact-tab">3</div>
+    <div class="tab-pane fade" id="div_manufacture" role="tabpanel" aria-labelledby="contact-tab">4</div>
+    <div class="tab-pane fade" id="div_customer" role="tabpanel" aria-labelledby="contact-tab">5</div>
+    <div class="tab-pane fade" id="div_certificate" role="tabpanel" aria-labelledby="contact-tab">6</div>
+</div>

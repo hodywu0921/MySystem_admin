@@ -1,0 +1,167 @@
+﻿@model IEnumerable<MySystem_admin.Models.VendorViewModel>
+
+@{
+    ViewBag.Title = "Architecture VendorInfo";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/jquery-ui.css" rel="stylesheet" />
+<link href="~/css/dataTables.editor.min.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        ShowArchitectureVendorList();
+
+        $('#btn_add').click(function () {
+            var formdata = $('#add_form').serialize();
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("AddArchitectureData", "Vendor")",
+                data: formdata,
+                success: function (status) {
+                    if (status = "true") {
+                        alert('Success');
+                        location.reload(true);
+                    }
+                    else {
+                        alert('Failed');
+                    }
+                }
+            })
+
+        });
+    });
+
+    function ShowArchitectureVendorList()
+    {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("ArchitectureData", "Vendor")',
+            success: function (d) {
+                $('#vendortable').DataTable({
+                    data: d,
+                    columns:
+                        [
+                            { data: "VendorId", width: "auto" },
+                            { data: "VendorName", width: "auto" },
+                            {
+                                data: null,
+                                render: function (data) {
+                                    var vendorid = data.VendorId;
+
+                                    return '<a href="#" id="dtl_link" class="btn btn-success" onclick="showArchitectureDtl(\'' + vendorid + '\')">'
+                                        + '<span class="glyphicon glyphicon-th-list"></span></a>'
+
+                                }
+                            }
+                        ]
+                })
+            }
+        })
+    }
+
+    function showAddArchitectureVendor(){
+        $.ajax({
+            type: 'Get',
+            url: "@Url.Action("AddArchitecture", "Vendor")",
+            success: function () {
+                $('#addmodalBodyDiv').html();
+                $('#add_modal').modal('show');
+            }
+        })
+    }
+
+    function showArchitectureDtl(vendorid) {
+        $.ajax({
+            type: 'Get',
+            url: "@Url.Action("EditArchitecture", "Vendor")",
+            data: {
+                VendorId: vendorid,
+            },
+            success: function (response) {
+                $('#editmodalBodyDiv').html(response);
+                $('#edit_modal').modal('show');
+            }
+        })
+    }
+</script>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Architecture Vendor Management
+            </div>
+            
+            <div class="panel-body">
+                <p>
+                    @*@Html.ActionLink("Create New", "Create")*@
+                    <a id="add_link" class="btn btn-default" onclick="showAddArchitectureVendor()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </p>
+                <table id="vendortable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                VendorId
+                            </th>
+                            <th>
+                                VendorName
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="modal fade" id="add_modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 id="ModalTitle">Add Architecture Vendor</h4>
+                            </div>
+                            <div class="modal-body" id="addmodalBodyDiv">
+                                @Html.Partial("/Views/Vendor/AddArchitectureAddPartial.cshtml")
+                            </div>
+                            <div class="modal-footer">
+                                <div class="form-group">
+                                    <div class="col-lg-1">
+                                        <a id="btn_add" class="btn btn-block btn-success " data-dismiss="modal" style="width:80px; display:inline;">Add</a>
+                                        <a class="btn btn-block btn-danger " data-dismiss="modal" style="width:80px; display:inline;">Exit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="edit_modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="width:800px;">
+                            <div class="modal-header">
+                                <h4 id="ModalTitle">Edit Architecture Vendor</h4>
+                            </div>
+                            <div class="modal-body" id="editmodalBodyDiv">
+                                @Html.Partial("/Views/Vendor/EditArchitectureAddPartial.cshtml")
+                            </div>
+                            <div class="modal-footer">
+                                <div class="form-group">
+                                    <div class="col-lg-1">
+                                        <a id="btn_add" class="btn btn-block btn-success " data-dismiss="modal" style="width:80px; display:inline;">Add</a>
+                                        <a class="btn btn-block btn-danger " data-dismiss="modal" style="width:80px; display:inline;">Exit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

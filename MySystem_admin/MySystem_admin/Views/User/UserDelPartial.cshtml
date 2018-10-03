@@ -1,0 +1,76 @@
+﻿@model MySystem_admin.Models.UserViewModel
+
+<div>
+    <form id="del_form">
+        <table class="table table-bordered">
+            <tr>
+                <td>Group</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.GroupId)
+                    @Html.TextBoxFor(model => model.GroupId, new { @style = "display:none;" })
+                </td>
+            </tr>
+            <tr>
+                <td>Factory</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.FactoryId)
+                    @Html.TextBoxFor(model => model.FactoryId, new { @style = "display:none;" })
+                </td>
+            </tr>
+            <tr>
+                <td>User Id</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.UserId)
+                    @Html.TextBoxFor(model => model.UserId, new { @style = "display:none;" })
+                </td>
+            </tr>
+            <tr>
+                <td>UserName</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.UserName)
+                    @Html.TextBoxFor(model => model.UserName, new { @style = "display:none;" })
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.Password)
+                    @Html.TextBoxFor(model => model.Password, new { @style = "display:none;" })
+                </td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.RoleId)
+                    @Html.TextBoxFor(model => model.RoleId, new { @style = "display:none;" })
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    @Html.DisplayTextFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email, new { @style = "display:none;" })
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn_confirm').click(function () {
+            var formdata = $('#del_form').serialize();
+            alert('Success');
+            
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("DeleteUser", "User")",
+                data: formdata,
+                success: function () {
+                    $('#del_modal').modal('hide');
+                }
+            })
+        })
+
+    });
+
+</script>*@

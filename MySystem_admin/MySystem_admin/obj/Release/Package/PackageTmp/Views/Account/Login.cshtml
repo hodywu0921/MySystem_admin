@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+<style>
+    .profile-img {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 10px;
+        display: block;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="login">
+        <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+        <form role="form" action="" method="POST">
+            <fieldset>
+                @*@Html.AntiForgeryToken()*@
+                <div class="form-group">
+                    <input class="form-control" placeholder="User ID ..." name="userid" autofocus>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Password ..." name="password" type="password" value="">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                    </label>
+                </div>
+                <input type="submit" name="sign" value="sign" class="btn btn-lg btn-primary btn-block" />
+            </fieldset>
+        </form>
+        <div id="tabs" data-tabs="tabs">
+            <p class="text-center"><a data-toggle="tab" href="#register">New Account?</a></p>
+        </div>
+    </div>
+    <div class="tab-pane fade in" id="register">
+        <form class="form-signin" action="" method="POST">
+            <input type="text" name="r_userid" class="form-control" placeholder="User ID ..." required autofocus>
+            <input type="text" name="r_username" class="form-control" placeholder="User Name ..." required>
+            <input type="password" name="r_password" class="form-control" placeholder="Password ..." required>
+            <input type="text" name="r_groupid" class="form-control" placeholder="Division ..." required>
+            <input type="text" name="r_factoryid" class="form-control" placeholder="Factory ..." required>
+            <input type="email" name="r_email" class="form-control" placeholder="Emaill Address ..." required>
+            <hr>
+            <input type="submit" name="register" value="register" class="btn btn-lg btn-default btn-block" />
+        </form>
+        <div>@ViewBag.RegisterMsg</div>
+        
+        <div id="tabs" data-tabs="tabs">
+            <p class="text-center"><a data-toggle="tab" href="#login">Have an Account?</a></p>
+        </div>
+    </div>
+</div>
